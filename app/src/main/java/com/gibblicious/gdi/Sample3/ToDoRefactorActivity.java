@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import com.gibblicious.gdi.Sample4.mvp.ToDoModel;
 import com.gibblicious.gdi.Sample4.mvp.ToDoPresenter;
 import com.gibblicious.gdi.Sample4.mvp.ToDoView;
+import com.squareup.otto.Bus;
 
 
 public class ToDoRefactorActivity extends AppCompatActivity {
@@ -19,13 +20,17 @@ public class ToDoRefactorActivity extends AppCompatActivity {
     }
 
     private void createPresenter() {
-        presenter = new ToDoPresenter(new ToDoModel(), new ToDoView(this));
+        Bus bus = new Bus();
+        presenter = new ToDoPresenter(new ToDoModel(),
+                new ToDoView(this, bus),
+                bus);
     }
 
     @Override
     public void onResume() {
         super.onResume();
         presenter.showList();
+
     }
 
 }

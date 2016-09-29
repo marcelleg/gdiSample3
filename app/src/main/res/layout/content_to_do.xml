@@ -26,16 +26,16 @@
         android:orientation="horizontal"
         android:layout_below="@id/question">
         <Button
+            android:id="@+id/button_no"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:onClick="onNoClick"
             android:text="NO"
             android:layout_margin="3dp"
             android:layout_weight=".5" />
         <Button
+            android:id="@+id/button_yes"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:onClick="onYesClick"
             android:text="YES"
             android:layout_margin="3dp"
             android:layout_weight=".5"/>
